@@ -34,7 +34,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App" 
+      <div className="App"
         style={{
           display: "flex",
           flexFlow: "row wrap",
@@ -48,15 +48,17 @@ function App() {
           cardTitle={"Lake Inniscarra, Ireland—Pyramid"}
           time={"30:53"}
           meters={"6,248 M"}
-          viewDetails={true}>
+          viewDetails={true}
+        >
           {/* in future, pass in data for view details rather than boolean */}
         </Card>
         <Card
           thumbSrc={PerformanceSeriesThumb}
           trainerIcon={PerformanceSeriesTrainer}
           cardTitle={"Performance Series"}
-          viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
+          viewDetails={false}
+          workouts={9}
+        >
         </Card>
         <Card
           thumbSrc={SlowPullsThumb}
@@ -71,8 +73,9 @@ function App() {
           thumbSrc={TwentyMinutesThumb}
           trainerIcon={TwentyMinutesTrainer}
           cardTitle={"20 Minutes to Toned"}
-          viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
+          viewDetails={false}
+          workouts={12}
+        >
         </Card>
         <Card
           thumbSrc={CharlesRaceThumb}
@@ -81,14 +84,14 @@ function App() {
           time={"36:22"}
           meters={"8,648 M"}
           viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
         </Card>
         <Card
           thumbSrc={FullBodyThumb}
           trainerIcon={FullBodyTrainer}
           cardTitle={"Full-Body HIIT Series"}
-          viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
+          viewDetails={false}
+          workouts={12}
+        >
         </Card>
         <Card
           thumbSrc={RiverThumb}
@@ -97,14 +100,14 @@ function App() {
           time={"22:22"}
           meters={"4,660 M"}
           viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
         </Card>
         <Card
           thumbSrc={ShredThumb}
           trainerIcon={ShredTrainer}
           cardTitle={"Shred & Burn Series"}
-          viewDetails={false}>
-          {/* in future, pass in data for view details rather than boolean */}
+          viewDetails={false}
+          workouts={16}
+        >
         </Card>
       </div>
     </ThemeProvider>

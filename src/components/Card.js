@@ -6,15 +6,17 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Timer } from '@material-ui/icons';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 275,
+        height: 285
     },
     thumb: {
         height: 0,
         paddingTop: '56.25%',
+        zIndex: -1
     },
     icon: {
         width: 29,
@@ -37,29 +39,45 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 10
     },
     timeDistance: {
-        paddingRight: 5
+        paddingRight: 5,
+        fontSize: 10,
+        color: "#000000",
+        fontWeight: "bold"
     },
     viewDetails: {
         textAlign: "start"
+    },
+    overlay: {
+        zIndex: 1,
+        float: "right",
+        color: "white",
+        background: "rgba(18, 18, 134, 0.3)",
+        height: "155px",
+        width: "110px",
     }
 
 }));
 
-export default function RecipeReviewCard(props) {
+export default function ExerciseCard(props) {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
 
     return (
         <Card className={classes.root}>
-            <CardMedia
-                className={classes.thumb}
-                image={props.thumbSrc}
-                title="thumbPic"
-            />
+            <div>
+                {props.workouts
+                    ? <div className={classes.overlay}>
+                        <div style={{ fontWeight: "bold", paddingTop: "25px" }}>{props.workouts}</div>
+                        <div style={{ fontSize: 10, paddingTop: "7.5px" }}>WORKOUTS</div>
+                        <MenuIcon style={{ paddingTop: "7.5px" }}></MenuIcon>
+                    </div>
+                    : <></>
+                }
+                <CardMedia
+                    className={classes.thumb}
+                    image={props.thumbSrc}
+                    title="thumbPic"
+                />
+            </div>
             <CardContent>
                 <div className={classes.cardBottomContainer}>
                     <Typography
@@ -78,15 +96,15 @@ export default function RecipeReviewCard(props) {
                 {props.time
                     ?
                     <div className={classes.details}>
-                        <Timer style={{ fontSize: 20, color: "#7f7f7f", paddingRight: 3 }}></Timer>
+                        <Timer style={{ fontSize: 15, color: "#7f7f7f", paddingRight: 3 }}></Timer>
                         <div className={classes.timeDistance}>{props.time}</div>
-                        <DirectionsRunIcon style={{ fontSize: 20, color: "#7f7f7f", paddingRight: 3 }}></DirectionsRunIcon>
+                        <DirectionsRunIcon style={{ fontSize: 15, color: "#7f7f7f", paddingRight: 3 }}></DirectionsRunIcon>
                         <div className={classes.timeDistance}>{props.meters}</div>
                     </div> : <></>
                 }
                 <div className={classes.viewDetails}>
                     {props.viewDetails
-                        ? <div style={{ fontWeight: "bold", color: "#2585E2" }}>VIEW DETAILS</div>
+                        ? <div style={{ fontWeight: "bold", color: "#2585E2", fontSize: 12.5 }}>VIEW DETAILS</div>
                         : <></>
                     }
                 </div>
