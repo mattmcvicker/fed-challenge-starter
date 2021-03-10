@@ -1,54 +1,48 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Timer } from '@material-ui/icons';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 270,
+        maxWidth: 275,
     },
     thumb: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
     },
     icon: {
-        width: 42,
-        height: 32
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
+        width: 29,
+        height: 27,
+        borderRadius: 2
     },
     cardBottomContainer: {
         display: "flex",
         flexDirection: "row",
         textAlign: "start",
+        width: 250
     },
     cardTitle: {
-        alignSelf: "flex-start"
+        alignSelf: "flex-start",
+        width: "220px"
+    },
+    details: {
+        display: "flex",
+        paddingTop: 5,
+        paddingBottom: 10
+    },
+    timeDistance: {
+        paddingRight: 5
+    },
+    viewDetails: {
+        textAlign: "start"
     }
+
 }));
 
 export default function RecipeReviewCard(props) {
@@ -80,6 +74,21 @@ export default function RecipeReviewCard(props) {
                         title="iconPic"
                     >
                     </CardMedia>
+                </div>
+                {props.time
+                    ?
+                    <div className={classes.details}>
+                        <Timer style={{ fontSize: 20, color: "#7f7f7f", paddingRight: 3 }}></Timer>
+                        <div className={classes.timeDistance}>{props.time}</div>
+                        <DirectionsRunIcon style={{ fontSize: 20, color: "#7f7f7f", paddingRight: 3 }}></DirectionsRunIcon>
+                        <div className={classes.timeDistance}>{props.meters}</div>
+                    </div> : <></>
+                }
+                <div className={classes.viewDetails}>
+                    {props.viewDetails
+                        ? <div style={{ fontWeight: "bold", color: "#2585E2" }}>VIEW DETAILS</div>
+                        : <></>
+                    }
                 </div>
             </CardContent>
         </Card>
