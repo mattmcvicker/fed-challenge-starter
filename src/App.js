@@ -42,16 +42,18 @@ function App() {
           justifyContent: "space-between",
         }}
       >
-        <Card
-          thumbSrc={LakeInniscarraThumb}
-          trainerIcon={LakeInniscarraTrainer}
-          cardTitle={"Lake Inniscarra, Ireland—Pyramid"}
-          time={"30:53"}
-          meters={"6,248 M"}
-          viewDetails={true}
-        >
-          {/* in future, pass in data for view details rather than boolean */}
-        </Card>
+        <div style={{ paddingBottom: 15 }}>
+          <Card
+            thumbSrc={LakeInniscarraThumb}
+            trainerIcon={LakeInniscarraTrainer}
+            cardTitle={"Lake Inniscarra, Ireland—Pyramid"}
+            time={"30:53"}
+            meters={"6,248 M"}
+            viewDetails={true}
+          >
+            {/* in future, pass in data for view details rather than boolean */}
+          </Card>
+        </div>
         <Card
           thumbSrc={PerformanceSeriesThumb}
           trainerIcon={PerformanceSeriesTrainer}

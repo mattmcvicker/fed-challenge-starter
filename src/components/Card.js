@@ -8,61 +8,71 @@ import { Timer } from '@material-ui/icons';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 275,
-        height: 285
-    },
-    thumb: {
-        height: 0,
-        paddingTop: '56.25%',
-        zIndex: -1
-    },
-    icon: {
-        width: 29,
-        height: 27,
-        borderRadius: 2
-    },
-    cardBottomContainer: {
-        display: "flex",
-        flexDirection: "row",
-        textAlign: "start",
-        width: 250
-    },
-    cardTitle: {
-        alignSelf: "flex-start",
-        width: "220px"
-    },
-    details: {
-        display: "flex",
-        paddingTop: 5,
-        paddingBottom: 10
-    },
-    timeDistance: {
-        paddingRight: 5,
-        fontSize: 10,
-        color: "#000000",
-        fontWeight: "bold"
-    },
-    viewDetails: {
-        textAlign: "start"
-    },
-    overlay: {
-        zIndex: 1,
-        float: "right",
-        color: "white",
-        background: "rgba(18, 18, 134, 0.3)",
-        height: "155px",
-        width: "110px",
-    }
 
-}));
 
 export default function ExerciseCard(props) {
-    const classes = useStyles();
+    const [shadowState, setShadowState] = React.useState("none");
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            maxWidth: 275,
+            height: 285,
+            boxShadow: shadowState
+        },
+        thumb: {
+            height: 0,
+            paddingTop: '56.25%',
+            zIndex: -1
+        },
+        icon: {
+            width: 29,
+            height: 27,
+            borderRadius: 2
+        },
+        cardBottomContainer: {
+            display: "flex",
+            flexDirection: "row",
+            textAlign: "start",
+            width: 250
+        },
+        cardTitle: {
+            alignSelf: "flex-start",
+            width: "220px"
+        },
+        details: {
+            display: "flex",
+            paddingTop: 5,
+            paddingBottom: 10
+        },
+        timeDistance: {
+            paddingRight: 5,
+            fontSize: 10,
+            color: "#000000",
+            fontWeight: "bold"
+        },
+        viewDetails: {
+            textAlign: "start"
+        },
+        overlay: {
+            zIndex: 1,
+            float: "right",
+            color: "white",
+            background: "rgba(18, 18, 134, 0.3)",
+            height: "155px",
+            width: "110px",
+        }
+    }));
 
+    const classes = useStyles();
+    
+    const changeShadow = () => {
+        if (shadowState === "none") {
+            setShadowState("5px 10px #888888")
+        } else {
+            setShadowState("none")
+        }
+    }
     return (
-        <Card className={classes.root}>
+        <Card onClick={() => {changeShadow()}} className={classes.root}>
             <div>
                 {props.workouts
                     ? <div className={classes.overlay}>
