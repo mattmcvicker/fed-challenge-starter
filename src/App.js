@@ -22,18 +22,7 @@ import ShredThumb from "./assets/shred-and-burn-thumb.jpg";
 import ShredTrainer from "./assets/shred-and-burn-trainer.jpg";
 
 function App() {
-  const font = "'Open Sans', sans-serif";;
-  const theme = createMuiTheme({
-    typography: {
-      fontFamily: [
-        'Open sans',
-        'sans-serif'
-      ].join(','),
-    },
-  });
-
   return (
-    <ThemeProvider theme={theme}>
       <div className="App"
         style={{
           display: "flex",
@@ -112,7 +101,6 @@ function App() {
         >
         </Card>
       </div>
-    </ThemeProvider>
   );
 }
 

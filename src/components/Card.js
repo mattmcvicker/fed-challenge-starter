@@ -16,7 +16,8 @@ export default function ExerciseCard(props) {
         root: {
             maxWidth: 275,
             height: 285,
-            boxShadow: shadowState
+            boxShadow: shadowState,
+            border: `1px solid rgba(18, 18, 39, 0.3)`,
         },
         thumb: {
             height: 0,
@@ -36,7 +37,8 @@ export default function ExerciseCard(props) {
         },
         cardTitle: {
             alignSelf: "flex-start",
-            width: "220px"
+            width: "210px",
+            paddingRight: "10px"
         },
         details: {
             display: "flex",
@@ -56,7 +58,7 @@ export default function ExerciseCard(props) {
             zIndex: 1,
             float: "right",
             color: "white",
-            background: "rgba(18, 18, 134, 0.3)",
+            background: "rgba(18, 18, 39, 0.3)",
             height: "155px",
             width: "110px",
         }
@@ -76,7 +78,7 @@ export default function ExerciseCard(props) {
             <div>
                 {props.workouts
                     ? <div className={classes.overlay}>
-                        <div style={{ fontWeight: "bold", paddingTop: "25px" }}>{props.workouts}</div>
+                        <div style={{ fontWeight: "bold", paddingTop: "25px", fontSize: "25px" }}>{props.workouts}</div>
                         <div style={{ fontSize: 10, paddingTop: "7.5px" }}>WORKOUTS</div>
                         <MenuIcon style={{ paddingTop: "7.5px" }}></MenuIcon>
                     </div>
